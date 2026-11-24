@@ -1,0 +1,20 @@
+Streamline icons by Streamline / Webalys.
+Source: https://github.com/webalys-hq/streamline-vectors
+Website: https://www.streamlinehq.com/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Selected from Core Line and Ultimate Regular. SVG stroke colors have been
+changed to currentColor for brand styling. Inline copies have decorative IDs
+removed and accessibility attributes added. Original geometry is preserved.
+Source paths:
+core/line/health/brain.svg
+core/line/health/blood-drop-donation.svg
+core/line/health/flu-mask.svg
+core/line/health/heart-rate-pulse-graph.svg
+core/line/health/health-care-2.svg
+core/line/health/bacteria-virus-cells-biology.svg
+core/line/nature-ecology/dna.svg
+ultimate/regular/interface-essential/navigation-menu-1.svg
+core/line/interface-essential/delete-1.svg
+ultimate/regular/arrows-diagrams/arrow-right.svg
