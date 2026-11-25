@@ -38,6 +38,11 @@
     ['.patient-section-head', 'up'],
     ['.patient-faq-list details', 'up'],
     ['.patient-cta-panel', 'scale'],
+    ['.privacy-hero-panel', 'scale'],
+    ['.privacy-index', 'left'],
+    ['.privacy-document-head', 'up'],
+    ['.privacy-articles article', 'up'],
+    ['.privacy-disclaimer', 'up'],
     ['#contact .footer-grid > div', 'up']
   ];
 
@@ -216,6 +221,8 @@
   const patientTopicLinks = Array.from(document.querySelectorAll('.patient-topics a[href^="#"]'));
   const patientFaq = document.querySelector('#faq');
   const patientScrollTargets = patientFaq ? [...patientArticles, patientFaq] : patientArticles;
+  const patientTopics = document.querySelector('.patient-topics');
+  const patientTopicsToggle = document.querySelector('.patient-topics-toggle');
 
   if (patientLearning && patientArticles.length && patientTopicLinks.length) {
     const setReadingArticle = article => {
@@ -235,9 +242,14 @@
       const visiblePatientArticles = new Map();
       const patientObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => visiblePatientArticles.set(entry.target, entry.intersectionRatio));
+        const readingLine = window.innerWidth <= 700 ? 124 : 132;
         const readingArticle = patientScrollTargets
           .filter(article => (visiblePatientArticles.get(article) || 0) > 0)
-          .sort((a, b) => (visiblePatientArticles.get(b) || 0) - (visiblePatientArticles.get(a) || 0))[0];
+          .sort((a, b) => {
+            const aDistance = Math.abs(a.getBoundingClientRect().top - readingLine);
+            const bDistance = Math.abs(b.getBoundingClientRect().top - readingLine);
+            return aDistance - bDistance;
+          })[0];
         if (readingArticle) setReadingArticle(readingArticle);
       }, { threshold: [0.15, 0.35, 0.55, 0.75], rootMargin: '-22% 0px -35% 0px' });
       patientScrollTargets.forEach(article => patientObserver.observe(article));
@@ -250,6 +262,15 @@
       setReadingArticle(article);
       article.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
       history.replaceState(null, '', link.getAttribute('href'));
+      if (window.innerWidth <= 700 && patientTopics && patientTopicsToggle) {
+        patientTopics.classList.remove('is-open');
+        patientTopicsToggle.setAttribute('aria-expanded', 'false');
+      }
     }));
+
+    patientTopicsToggle?.addEventListener('click', () => {
+      const open = patientTopics.classList.toggle('is-open');
+      patientTopicsToggle.setAttribute('aria-expanded', String(open));
+    });
   }
 })();
