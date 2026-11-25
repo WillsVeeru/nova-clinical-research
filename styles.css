@@ -532,6 +532,77 @@ main h2{font-weight:400!important}
 
 /* White links remain legible over the dark hero image. */
 .hero-location a,.hero-location a:hover{color:var(--white)}
+
+/* Reference-inspired home hero: high-visibility editorial layout, adapted for NOVA. */
+.home-page .site-header{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.home-page .site-header.is-scrolled{background:rgba(255,255,255,.92);border-bottom-color:var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(16,43,78,.06)}
+.home-page .site-header .brand-logo-default{display:none}
+.home-page .site-header .brand-logo-scroll{display:block}
+.home-page .site-header .nav a{color:var(--navy)}
+.home-page .site-header .nav a:hover,.home-page .site-header .nav a.active{color:var(--teal)}
+.home-page .site-header .mobile-toggle{color:var(--navy)}
+.home-page .site-header:not(.is-scrolled) .header-cta{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.home-page .hero{height:100svh;min-height:0;align-items:stretch;background:
+  radial-gradient(circle at 62% 42%,rgba(255,255,255,.86) 0 12%,rgba(255,255,255,0) 38%),
+  radial-gradient(circle at 12% 74%,rgba(56,127,135,.18),transparent 34%),
+  linear-gradient(112deg,#e8f1f0 0%,#f6f4ef 48%,#e4eef0 100%)}
+.home-page .hero:before{z-index:0;background:
+  linear-gradient(90deg,rgba(250,249,246,.25),transparent 52%),
+  repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),rgba(16,43,78,.055) 25%)}
+.home-page .container.hero-content{position:relative;z-index:2;padding-top:clamp(150px,18vh,190px);padding-bottom:150px;align-items:center}
+.home-page .hero-copy{width:51%;max-width:720px;color:var(--navy)}
+.home-page .hero-eyebrow{display:flex;align-items:center;gap:10px;max-width:none;margin:0 0 22px;color:var(--teal);font-size:12px;font-weight:700;line-height:1.4;letter-spacing:.15em;text-transform:uppercase}.home-page .hero-eyebrow span{display:inline-flex;align-items:center;gap:10px;color:var(--gold)}.home-page .hero-eyebrow span:before{content:"";width:24px;height:1px;background:var(--gold)}
+.home-page .hero-kicker{display:flex;align-items:center;gap:9px;max-width:none!important;margin:0 0 22px!important;color:var(--teal)!important;font-size:12px!important;font-weight:700;line-height:1.4!important;letter-spacing:.15em;text-transform:uppercase}
+.home-page .hero-kicker span{color:var(--gold)}
+.home-page .hero h1{max-width:760px;margin:0 0 24px;color:var(--navy);font-size:clamp(52px,5.25vw,82px);font-weight:500;line-height:.98;letter-spacing:-.065em}
+.home-page .hero h1 em{color:var(--teal)}
+.home-page .hero-copy>p:not(.hero-eyebrow):not(.hero-trust){max-width:540px;margin:0 0 30px;color:rgba(16,43,78,.82);font-size:16px;line-height:1.75}
+.home-page .hero .btn:not(.outline){background:var(--navy);border-color:var(--navy);color:var(--white);box-shadow:0 8px 24px rgba(16,43,78,.15)}
+.home-page .hero .btn:not(.outline):hover{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.home-page .hero .btn.outline{border-color:rgba(16,43,78,.45);color:var(--navy)}
+.home-page .hero .btn.outline:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.home-page .hero-person{z-index:1;left:calc(50% + min(20vw,310px));height:min(88vh,820px);filter:drop-shadow(0 28px 38px rgba(16,43,78,.12))}
+.home-page .hero-stats-container{right:max(24px,3.5vw);left:auto;bottom:auto;top:50%;width:150px;padding:0;transform:translateY(-42%)}
+.home-page .hero-stats{width:100%;max-width:none;grid-template-columns:1fr;gap:0;padding:0}
+.home-page .hero-stat,.home-page .hero-stat:first-child,.home-page .hero-stat:last-child{align-items:flex-end;padding:20px 0;text-align:right}
+.home-page .hero-stat+.hero-stat{border-top:1px solid rgba(16,43,78,.18);border-left:0}
+.home-page .hero-stat dd{color:var(--navy);font-size:42px;font-weight:600}
+.home-page .hero-stat dt{color:rgba(16,43,78,.7);font-size:12px;line-height:1.45}
+
+@media(max-width:1050px){
+  .home-page .hero{height:100svh;min-height:0;display:flex;flex-direction:column}
+  .home-page .container.hero-content{padding-top:120px;padding-bottom:26px}
+  .home-page .hero-copy{width:62%;max-width:600px}
+  .home-page .hero h1{font-size:clamp(44px,6.4vw,62px)}
+  .home-page .hero-person{position:absolute;right:-22%;left:auto;bottom:0;height:min(70svh,680px)}
+  .home-page .hero-stats-container{position:relative;top:auto;right:auto;order:2;width:62%;padding:0 20px 32px;transform:none}
+  .home-page .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));padding:18px 22px;border:1px solid rgba(16,43,78,.14);background:rgba(255,255,255,.48);backdrop-filter:blur(8px)}
+  .home-page .hero-stat,.home-page .hero-stat:first-child,.home-page .hero-stat:last-child{align-items:flex-start;padding:0 16px;text-align:left}
+  .home-page .hero-stat+.hero-stat{border-top:0;border-left:1px solid rgba(16,43,78,.16)}
+  .home-page .hero-stat dd{font-size:34px}
+}
+@media(max-width:760px){
+  .home-page .site-header .header-cta{display:none}
+  .home-page .hero{height:100svh;min-height:0;background:radial-gradient(circle at 80% 72%,rgba(255,255,255,.82),transparent 32%),linear-gradient(155deg,#e6f0ef,#f7f4ee 52%,#e3edef)}
+  .home-page .hero:before{background:linear-gradient(180deg,rgba(250,249,246,.3),transparent 58%)}
+  .home-page .container.hero-content{padding-top:105px;padding-bottom:20px}
+  .home-page .hero-copy{width:100%;max-width:600px}
+  .home-page .hero-kicker{margin-bottom:16px!important;font-size:10px!important;letter-spacing:.11em}
+  .home-page .hero h1{font-size:clamp(42px,12vw,58px);line-height:1;letter-spacing:-.055em}
+  .home-page .hero-copy>p:not(.hero-eyebrow):not(.hero-trust){max-width:500px;font-size:14px;line-height:1.65}
+  .home-page .hero-stats-container{width:100%;padding:0 20px 20px}
+  .home-page .hero-stats{padding:16px 8px}
+  .home-page .hero-stat,.home-page .hero-stat:first-child,.home-page .hero-stat:last-child{padding:0 10px}
+  .home-page .hero-stat dd{font-size:29px}
+  .home-page .hero-stat dt{font-size:10px}
+  .home-page .hero-person{position:relative;order:3;right:auto;left:auto;bottom:auto;height:auto;width:100%;max-width:100%;margin:-10px 0 0;transform:scale(1.65);transform-origin:top center}
+}
+@media(max-width:430px){
+  .home-page .hero{height:100svh;min-height:0}
+  .home-page .hero h1{font-size:clamp(38px,11.5vw,48px)}
+  .home-page .hero .actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .home-page .hero .btn{padding-inline:10px;font-size:11px;text-align:center}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.btn:hover,.specialty:hover{transform:none}}
 
 /* Contained closing banner inspired by the reference, in NOVA's palette. */
@@ -605,11 +676,14 @@ footer#contact{padding:var(--section-space) 0 36px}
 .about-communities{padding:42px;border:1px solid var(--line);border-radius:28px;background:var(--ivory)}
 .about-communities ul{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 0;padding:0;list-style:none}.about-communities li{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--white);font-size:14px}
 .about-connect{padding-top:0!important;background:var(--white)}
-.about-connect-panel{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:48px;align-items:end;padding:64px;border-radius:32px;background:var(--navy);color:var(--white)}
+.about-connect-panel{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr;align-content:center;min-height:330px;overflow:hidden;padding:64px;border-radius:32px;background:
+  linear-gradient(90deg,rgba(16,43,78,.98) 0%,rgba(16,43,78,.94) 43%,rgba(16,43,78,.58) 62%,rgba(16,43,78,.08) 100%),
+  url('assets/nova-dna-cta-banner.png') center/cover no-repeat;color:var(--white)}
+.about-connect-panel>div{position:relative;z-index:1;max-width:720px}
 .about-connect .about-page-eyebrow{color:#9ED1D3}.about-connect h2{color:var(--white)}.about-connect p{max-width:680px;margin:22px 0 0;color:rgba(250,249,246,.84)}
-.about-connect-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px}.about-connect .btn{border-radius:999px}.about-connect .btn:first-child{background:var(--gold);border-color:var(--gold);color:var(--navy)}.about-connect .btn.outline{border-color:var(--white);color:var(--white)}
+.about-connect-actions{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px;margin-top:30px}.about-connect .btn{border-radius:999px}.about-connect .btn:first-child{background:var(--gold);border-color:var(--gold);color:var(--navy)}.about-connect .btn.outline{border-color:var(--white);color:var(--white)}
 @media(max-width:1050px){.about-page main>section{padding-block:var(--section-space-tablet)!important}.about-page-hero-panel{min-height:620px;padding:58px}.about-two-column,.about-leadership-grid{grid-template-columns:1fr;gap:48px}.about-values-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-connect-panel{grid-template-columns:1fr}.about-connect-actions{justify-content:flex-start}}
-@media(max-width:600px){.about-page main>section{padding-block:var(--section-space-mobile)!important}.about-page-hero-panel{min-height:580px;padding:38px 24px;border-radius:28px;background-position:62% center}.about-page-hero-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.38),rgba(16,43,78,.9))}.about-page-hero h1{font-size:38px}.about-page-hero p{font-size:16px}.about-purpose-grid,.about-values-grid{grid-template-columns:1fr}.about-purpose article{padding:0}.about-purpose article+article{margin-top:48px;padding-top:48px;border-top:1px solid var(--line);border-left:0}.about-values-grid{margin-top:40px}.about-values-grid article{min-height:240px}.about-communities,.about-connect-panel{padding:32px 24px}.about-connect-actions{flex-direction:column}.about-connect .btn{width:100%}}
+@media(max-width:600px){.about-page main>section{padding-block:var(--section-space-mobile)!important}.about-page-hero-panel{min-height:580px;padding:38px 24px;border-radius:28px;background-position:62% center}.about-page-hero-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.38),rgba(16,43,78,.9))}.about-page-hero h1{font-size:38px}.about-page-hero p{font-size:16px}.about-purpose-grid,.about-values-grid{grid-template-columns:1fr}.about-purpose article{padding:0}.about-purpose article+article{margin-top:48px;padding-top:48px;border-top:1px solid var(--line);border-left:0}.about-values-grid{margin-top:40px}.about-values-grid article{min-height:240px}.about-communities,.about-connect-panel{padding:32px 24px}.about-connect-panel{grid-template-columns:1fr;min-height:430px;background:linear-gradient(180deg,rgba(16,43,78,.97) 0%,rgba(16,43,78,.91) 62%,rgba(16,43,78,.54) 100%),url('assets/nova-dna-cta-banner.png') 69% center/cover no-repeat}.about-connect-actions{flex-direction:column}.about-connect .btn{width:100%}}
 
 /* About refinements: prominent header, research statistics, and unified purpose panel. */
 .about-page .site-header{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 18px rgba(16,43,78,.05)}
@@ -712,7 +786,7 @@ footer#contact{padding:var(--section-space) 0 36px}
 .about-values-grid{display:grid;grid-template-columns:minmax(240px,.8fr) minmax(340px,1.25fr) minmax(240px,.8fr);grid-template-rows:repeat(2,minmax(220px,auto));gap:24px 56px;align-items:stretch;margin-top:0}
 .about-values-intro{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;text-align:center}
 .about-values .about-values-intro h2{max-width:620px;margin:18px auto 0;font-size:clamp(42px,4.4vw,62px);line-height:1.08;text-wrap:balance}
-.about-values .about-values-intro:after{content:"";width:64px;height:2px;margin-top:28px;background:var(--gold)}
+.about-values .about-values-intro:after{content:none}
 .about-values-grid article{min-height:220px;padding:28px;border:1px solid rgba(16,43,78,.12);border-radius:24px;background:#fff;box-shadow:0 10px 28px rgba(16,43,78,.06)}
 .about-values-grid article:nth-of-type(1){grid-column:1;grid-row:1}
 .about-values-grid article:nth-of-type(2){grid-column:3;grid-row:1}
@@ -806,6 +880,12 @@ footer#contact{padding:var(--section-space) 0 36px}
   .about-ethics-media:hover img,.about-ethics-list li:hover,.about-ethics-list li:hover p,.about-ethics-list li:hover span{transform:none}
 }
 
+/* Tighten the transition from the About hero into Who We Are. */
+.about-page main>section.about-page-hero{padding-bottom:var(--section-space)!important}
+.about-page main>section.about-who{padding-top:var(--section-space)!important}
+@media(max-width:1050px){.about-page main>section.about-page-hero{padding-bottom:var(--section-space-tablet)!important}.about-page main>section.about-who{padding-top:var(--section-space-tablet)!important}}
+@media(max-width:600px){.about-page main>section.about-page-hero{padding-bottom:var(--section-space-mobile)!important}.about-page main>section.about-who{padding-top:var(--section-space-mobile)!important}}
+
 /* About-page primary CTA uses the approved brand navy. */
 .about-connect .btn:first-child{background:var(--navy);border-color:rgba(255,255,255,.42);color:var(--white);box-shadow:0 8px 20px rgba(0,0,0,.16)}
 .about-connect .btn:first-child:hover{background:var(--action-hover);border-color:rgba(255,255,255,.72);color:var(--white)}
@@ -828,4 +908,246 @@ footer#contact{padding:var(--section-space) 0 36px}
   .site-header .nav .nav-label{display:flex;min-height:48px;padding:12px 16px;color:var(--navy);font-size:16px;line-height:1.5;white-space:normal}
 }
 @media(min-width:1051px){.about-page .site-header .nav .nav-label{font-size:16px}}
+
+/* Final homepage hero cascade guards. */
+.home-page .site-header .nav .nav-label{color:var(--navy)}
+@media(min-width:1051px){.home-page .hero-copy{padding-top:0}}
+@media(min-width:761px) and (max-width:1050px){.home-page .hero-copy{padding-top:0}}
+@media(max-width:760px){.home-page .hero-copy{padding-top:0}}
+
+/* Motion system and scroll feedback. */
+.nav a[aria-current="location"]{color:var(--teal)}
+.motion-ready [data-reveal]{opacity:0;transform:translate3d(0,24px,0);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+.motion-ready [data-reveal="left"]{transform:translate3d(-28px,0,0)}
+.motion-ready [data-reveal="right"]{transform:translate3d(28px,0,0)}
+.motion-ready [data-reveal="scale"]{transform:scale(.975)}
+.motion-ready [data-reveal].is-visible{opacity:1;transform:none;will-change:auto}
+.motion-ready .hero-copy>*{opacity:0;transform:translateY(20px)}
+.motion-ready .hero-person{opacity:0;transform:translateX(-46%) translateX(24px)}
+.motion-ready .hero-stats{opacity:0;transform:translateY(18px)}
+.motion-ready.page-ready .hero-copy>*{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.motion-ready.page-ready .hero-copy>*:nth-child(1){transition-delay:.08s}
+.motion-ready.page-ready .hero-copy>*:nth-child(2){transition-delay:.17s}
+.motion-ready.page-ready .hero-copy>*:nth-child(3){transition-delay:.26s}
+.motion-ready.page-ready .hero-copy>*:nth-child(4){transition-delay:.35s}
+.motion-ready.page-ready .hero-person{opacity:1;transform:translateX(-50%);transition:opacity .9s .12s ease,transform 1s .12s cubic-bezier(.2,.7,.2,1)}
+.motion-ready.page-ready .hero-stats{opacity:1;transform:none;transition:opacity .7s .42s ease,transform .7s .42s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .about-page-hero-copy>*{opacity:0;transform:translateY(22px)}
+.motion-ready.page-ready .about-page-hero-copy>*{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.motion-ready.page-ready .about-page-hero-copy>*:nth-child(1){transition-delay:.08s}
+.motion-ready.page-ready .about-page-hero-copy>*:nth-child(2){transition-delay:.17s}
+.motion-ready.page-ready .about-page-hero-copy>*:nth-child(3){transition-delay:.28s}
+.motion-ready .leadership-hero-panel{opacity:0;transform:scale(.985)}
+.motion-ready.page-ready .leadership-hero-panel{opacity:1;transform:none;transition:opacity .75s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .leadership-hero-copy>*{opacity:0;transform:translateY(22px)}
+.motion-ready.page-ready .leadership-hero-copy>*{opacity:1;transform:none;transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1)}
+.motion-ready.page-ready .leadership-hero-copy>*:nth-child(1){transition-delay:.18s}
+.motion-ready.page-ready .leadership-hero-copy>*:nth-child(2){transition-delay:.28s}
+.motion-ready.page-ready .leadership-hero-copy>*:nth-child(3){transition-delay:.38s}
+@media(max-width:1050px){
+  .motion-ready .hero-person,.motion-ready.page-ready .hero-person{transform:none}
+  .nav a[aria-current="location"]{background:var(--ivory)}
+}
+@media(max-width:760px){
+  .motion-ready .hero-person,.motion-ready.page-ready .hero-person{transform:scale(1.65)}
+}
+@media(prefers-reduced-motion:reduce){
+  .motion-ready [data-reveal],.motion-ready .hero-copy>*,.motion-ready .hero-person,.motion-ready .hero-stats,.motion-ready .about-page-hero-copy>*,.motion-ready .leadership-hero-panel,.motion-ready .leadership-hero-copy>*{opacity:1;transform:none;transition:none}
+  .investigator-scroll-zone{height:auto}.investigator-sticky{position:relative;top:auto;overflow:visible}.investigator-grid{display:grid;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));transform:none}.investigator-card{width:auto;height:auto;min-height:500px}
+}
+
+/* Leadership page — editorial brand layout. */
+.leadership-page .site-header{background:rgba(255,255,255,.94);color:var(--navy);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.leadership-page .site-header .brand-logo-default{display:none}
+.leadership-page .site-header .brand-logo-scroll{display:block}
+.leadership-page .site-header .nav a{color:var(--navy)}
+.leadership-page .site-header .nav a:hover,.leadership-page .site-header .nav a.active{color:var(--teal)}
+.leadership-page .site-header .mobile-toggle{color:var(--navy)}
+.leadership-page .site-header .header-cta{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.leadership-page{overflow-x:clip}
+.leadership-page main>section{padding-block:var(--section-space)}
+.leadership-hero{background:var(--white)}
+.leadership-hero-panel{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr;align-items:end;min-height:680px;overflow:hidden;padding:76px;border-radius:36px;background:url('assets/nova-hero-lab.png') center/cover no-repeat;box-shadow:0 18px 44px rgba(16,43,78,.12)}
+.leadership-hero-panel:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,43,78,.94),rgba(16,43,78,.75) 58%,rgba(16,43,78,.38))}
+.leadership-page-number{align-self:start;color:rgba(255,255,255,.2);font-size:clamp(94px,11vw,160px);font-weight:700;line-height:.8;letter-spacing:-.09em}
+.leadership-hero-copy{max-width:900px;color:var(--white)}
+.leadership-kicker{display:block;color:var(--teal);font-size:13px;font-weight:700;line-height:1.4;letter-spacing:.18em;text-transform:uppercase}
+.leadership-hero h1{max-width:900px;margin:22px 0 0;color:var(--white);font-size:clamp(44px,5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.05em}
+.leadership-hero p{max-width:680px;margin:30px 0 0;color:rgba(255,255,255,.86);font-size:19px;line-height:1.7}
+.leadership-hero .leadership-kicker{color:#9ED1D3}
+.leadership-section-head{display:block;margin-bottom:58px}
+.leadership-section-head h2{max-width:760px;margin:16px 0 0;font-size:clamp(40px,4.3vw,66px);font-weight:500;line-height:1.06;letter-spacing:-.045em}
+.leadership-section-head p{max-width:660px;margin:22px 0 0;color:rgba(16,43,78,.7);font-size:17px;line-height:1.7}
+.director-card{display:grid;grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);height:600px;min-height:0;overflow:hidden;border-radius:32px;background:var(--navy);box-shadow:0 20px 50px rgba(16,43,78,.13)}
+.leader-photo{position:relative;min-width:0;height:600px;overflow:hidden;background:var(--teal)}
+.leader-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 22%;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.director-copy{display:flex;flex-direction:column;justify-content:flex-start;padding:40px 44px;color:var(--white)}
+.director-copy h3,.investigator-card h3{margin:0;font-size:clamp(30px,3vw,44px);font-weight:500;line-height:1.12;letter-spacing:-.035em}
+.director-copy h3{color:var(--white)}
+.leader-role{margin:14px 0 0!important;color:#9ED1D3!important;font-size:14px!important;font-weight:700;line-height:1.5!important;letter-spacing:.05em}
+.director-copy>p:not(.leader-role){max-width:670px;margin:22px 0 0;color:rgba(255,255,255,.82);font-size:15px;line-height:1.65}
+.expertise-block{margin-top:auto;padding-top:18px;border-top:0}
+.expertise-block>span{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.expertise-block ul,.investigator-card ul{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.expertise-block li{padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:rgba(255,255,255,.9);font-size:11px}
+@media(hover:hover){.director-card:hover .leader-photo img{transform:scale(1.045)}}
+.investigators{background:var(--ivory)}
+.investigator-scroll-zone{position:relative;height:var(--investigator-scroll-height,1800px)}
+.investigator-sticky{position:sticky;top:104px;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;padding-block:10px 34px}
+.investigator-grid{display:flex;gap:24px;width:max-content;padding-inline:var(--investigator-edge-gutter,0px);transform:translate3d(var(--investigator-shift,0px),0,0);will-change:transform}
+.investigator-card{position:relative;display:grid;grid-template-columns:40% 60%;width:var(--investigator-card-width,520px);height:460px;flex:0 0 auto;overflow:hidden;padding:0;border:1px solid rgba(16,43,78,.11);border-radius:28px;background:var(--white);box-shadow:0 12px 32px rgba(16,43,78,.05)}
+.investigator-photo{min-width:0;min-height:0;overflow:hidden;background:#dfe8e6}
+.investigator-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.investigator-content{position:relative;display:flex;min-width:0;flex-direction:column;justify-content:flex-start;padding:26px 26px}
+.investigator-count{position:absolute;top:26px;right:26px;margin:0;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.12em}
+.investigator-content>.leadership-kicker{padding-right:76px}
+.investigator-card h3{max-width:500px;font-size:25px}
+.investigator-content h3{margin-top:16px}
+.investigator-card h3 small{display:inline;font-size:.48em;font-weight:600;letter-spacing:.02em}
+.investigator-content>p:not(.leader-role){margin:18px 0 0;color:rgba(16,43,78,.72);font-size:13px;line-height:1.6}
+.investigator-card ul{margin-top:auto;padding-top:18px}
+.investigator-card li{padding:7px 10px;border-radius:999px;background:rgba(56,127,135,.09);color:var(--teal);font-size:11px;font-weight:600}
+.investigator-mobile-controls{display:none}
+@media(hover:hover){.investigator-card:hover .investigator-photo img{transform:scale(1.035)}}
+.leadership-partner{background:var(--white)}
+.leadership-partner-panel{position:relative;isolation:isolate;overflow:hidden;padding:70px;border-radius:32px;background:var(--navy);color:var(--white)}
+.leadership-partner-panel:before{content:"";position:absolute;z-index:-2;top:0;right:-7%;bottom:0;width:66%;background:url('assets/nova-dna-cta-banner.png') right center/cover no-repeat;opacity:.34}
+.leadership-partner-panel:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(16,43,78,.96) 48%,rgba(16,43,78,.45) 74%,rgba(16,43,78,.12) 100%)}
+.leadership-partner-panel .leadership-kicker{color:#9ED1D3}
+.leadership-partner-panel h2{max-width:720px;margin:18px 0 0;color:var(--white);font-size:clamp(40px,4.4vw,64px);font-weight:500;line-height:1.06;letter-spacing:-.045em}
+.leadership-partner-panel p{max-width:620px;margin:24px 0 0;color:rgba(255,255,255,.84);font-size:17px;line-height:1.7}
+.leadership-partner-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.leadership-partner-panel .btn{margin-top:0;border-color:var(--white);background:var(--white);color:var(--navy);border-radius:999px}
+.leadership-partner-panel .btn-outline{background:transparent;color:var(--white)}
+.leadership-partner-panel .btn-outline:hover{background:var(--white);color:var(--navy)}
+@media(max-width:1050px){
+  .leadership-page main>section{padding-block:var(--section-space-tablet)}
+  .leadership-page main>section.leadership-hero{padding-top:calc(var(--section-space-tablet) + 22px)}
+  .leadership-hero-panel{grid-template-columns:1fr;min-height:620px;margin-top:18px;padding:58px}
+  .director-card{grid-template-columns:42% 58%;height:600px}.leader-photo{height:600px}.director-copy{padding:42px 36px}
+  .investigator-sticky{top:92px}.investigator-card{height:460px}
+}
+@media(max-width:700px){
+  .leadership-page main>section{padding-block:var(--section-space-mobile)}
+  .leadership-page main>section.leadership-hero{padding-top:calc(var(--section-space-mobile) + 44px)}
+  .leadership-hero-panel{display:flex;min-height:580px;flex-direction:column;justify-content:flex-end;gap:28px;margin-top:16px;padding:38px 24px;border-radius:28px;background-position:62% center}
+  .leadership-hero-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.42),rgba(16,43,78,.94))}
+  .leadership-page-number{position:absolute;top:34px;left:24px;font-size:76px}.leadership-hero h1{font-size:38px}.leadership-hero p{font-size:16px}
+  .leadership-section-head h2{font-size:40px}
+  .director-card{grid-template-columns:1fr;height:auto}.leader-photo{height:280px}.director-copy{padding:30px 24px}.director-copy>p:not(.leader-role){font-size:14px}
+  .investigator-scroll-zone{height:auto}.investigator-sticky{position:relative;top:auto;width:100%;margin-left:0;overflow:visible;padding-bottom:4px}.investigator-grid{width:100%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:14px;overscroll-behavior-inline:contain;transform:none!important;padding:0 14px 18px;margin:0;scrollbar-width:none}.investigator-grid::-webkit-scrollbar{display:none}.investigator-card{grid-template-columns:1fr;grid-template-rows:auto 1fr;width:84%;max-width:360px;height:610px;min-height:0;scroll-snap-align:start}.investigator-photo{aspect-ratio:16/11}.investigator-content{height:100%;padding:26px 22px}.investigator-count{top:26px;right:22px}.investigator-content>.leadership-kicker{min-height:28px;padding-right:68px;font-size:10px;letter-spacing:.13em}.investigator-content h3{display:block;min-height:58px;margin-top:12px}.investigator-content h3 small{display:inline;white-space:nowrap;margin-left:3px;vertical-align:baseline}.investigator-content .leader-role{min-height:48px;margin-top:8px!important}.investigator-content>p:not(.leader-role){min-height:70px;margin-top:10px}.investigator-card ul{margin-top:auto;padding-top:12px}.investigator-card h3{font-size:25px}
+  .investigator-mobile-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}.investigator-control{display:grid;width:44px;height:44px;place-items:center;border:1px solid rgba(16,43,78,.2);border-radius:50%;background:var(--white);color:var(--navy);cursor:pointer}.investigator-control:before{content:"";width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}.investigator-prev:before{transform:rotate(-135deg);margin-left:3px}.investigator-next:before{transform:rotate(45deg);margin-right:3px}.investigator-control:disabled{opacity:.35;cursor:default}.investigator-dots{display:flex;align-items:center;gap:7px}.investigator-dots span{width:7px;height:7px;border-radius:50%;background:rgba(16,43,78,.2);transition:width .25s ease,background .25s ease}.investigator-dots span.is-active{width:22px;border-radius:999px;background:var(--teal)}
+  .leadership-partner-panel{padding:46px 26px}
+  .leadership-partner-panel:before{right:-38%;width:115%;opacity:.22}
+  .leadership-partner-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.98),rgba(16,43,78,.9) 72%,rgba(16,43,78,.68))}
+  .leadership-partner-actions{flex-direction:column;align-items:stretch}.leadership-partner-actions .btn{justify-content:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce) and (min-width:701px){
+  .investigator-scroll-zone{height:auto}
+  .investigator-sticky{position:relative;top:auto;width:100%;margin-left:0;overflow:visible}
+  .investigator-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;transform:none}
+  .investigator-card{width:auto;height:auto;min-height:520px}
+}
+
+/* About responsive refinements: visible hero gap and uncluttered brand-led values. */
+@media(max-width:1200px){
+  .about-who .about-two-column{grid-template-columns:minmax(0,1fr);gap:44px}
+  .about-who .about-two-column>div:first-child,.about-who .about-body-copy{grid-column:1;grid-row:auto}
+  .about-who .about-page-stats{max-width:720px}
+}
+@media(max-width:1050px){
+  .about-page-hero-panel{margin-top:18px}
+  .about-values-intro{min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;align-items:flex-start;text-align:left}
+  .about-values .about-values-intro .about-page-eyebrow{color:var(--teal)}
+  .about-values .about-values-intro h2{max-width:720px;margin:18px 0 0;color:var(--navy);text-align:left}
+}
+@media(max-width:600px){
+  .about-page-hero-panel{margin-top:16px}
+  .about-who .about-two-column{gap:32px}
+  .about-who .about-page-stats{grid-template-columns:1fr;gap:18px;margin-top:28px}
+  .about-who .about-page-stats>div,.about-who .about-page-stats>div:first-child,.about-who .about-page-stats>div+div{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:12px;padding:0;border-left:0}
+  .about-who .about-page-stats dt{margin-top:0}
+  .about-values-intro{min-height:0;padding:0}
+}
+
+/* Clinical Trials page — approved content in the NOVA editorial system. */
+.trials-page{overflow-x:clip}
+.trials-page .site-header{background:rgba(255,255,255,.94);color:var(--navy);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.trials-page .site-header .brand-logo-default{display:none}.trials-page .site-header .brand-logo-scroll{display:block}.trials-page .site-header .nav a{color:var(--navy)}.trials-page .site-header .nav a:hover,.trials-page .site-header .nav a.active,.trials-page .site-header .nav a[aria-current="page"]{color:var(--teal)}.trials-page .site-header .mobile-toggle{color:var(--navy)}.trials-page .site-header .header-cta{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.trials-page main>section{padding-block:var(--section-space)}
+.trials-hero{background:var(--white)}
+.trials-hero-panel{position:relative;isolation:isolate;display:flex;min-height:680px;align-items:flex-end;overflow:hidden;padding:76px;border-radius:36px;background:url('assets/nova-hero-lab.png') center/cover no-repeat;box-shadow:0 18px 44px rgba(16,43,78,.12)}
+.trials-hero-panel:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,43,78,.94),rgba(16,43,78,.74) 58%,rgba(16,43,78,.36))}
+.trials-hero-copy{max-width:880px;color:var(--white)}.trials-hero .leadership-kicker{color:#9ED1D3}.trials-hero h1{max-width:820px;margin:22px 0 0;color:var(--white);font-size:clamp(44px,5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.05em}.trials-hero p{max-width:690px;margin:30px 0 0;color:rgba(255,255,255,.86);font-size:19px;line-height:1.7}
+.trials-list{background:var(--ivory)}
+.trials-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px}.trials-section-head h2{max-width:760px;margin:16px 0 0;font-size:clamp(40px,4.3vw,66px);font-weight:500;line-height:1.06;letter-spacing:-.045em}.trials-section-head p{max-width:690px;margin:22px 0 0;color:rgba(16,43,78,.72);font-size:17px;line-height:1.7}
+.trials-legend{display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;list-style:none;color:rgba(16,43,78,.7);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}.trials-legend li{display:flex;align-items:center;gap:8px}.trials-legend i{width:8px;height:8px;border-radius:50%;background:var(--teal)}.trials-legend .is-pending{background:var(--gold)}.trials-legend .is-closed{background:rgba(16,43,78,.55)}
+.trial-cards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}.trial-card{grid-column:span 2;display:flex;min-height:650px;flex-direction:column;padding:34px;border:1px solid var(--line);border-radius:28px;background:var(--white);box-shadow:0 10px 28px rgba(16,43,78,.05);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}.trial-card:nth-child(4){grid-column:2/span 2}.trial-card:nth-child(5){grid-column:4/span 2}.trial-card:hover{transform:translateY(-4px);border-color:rgba(184,154,96,.58);box-shadow:0 18px 38px rgba(16,43,78,.09)}.trial-card-top{display:flex;align-items:center;justify-content:space-between;gap:18px;color:rgba(16,43,78,.65);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em}.trial-status{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(56,127,135,.25);border-radius:999px;background:rgba(56,127,135,.07);color:var(--teal)}.trial-status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}.trial-area{display:block;margin-top:30px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.trial-card h3{margin:10px 0 0;font-size:27px;font-weight:500;line-height:1.25;letter-spacing:-.025em}.trial-card>p{margin:16px 0 0;color:rgba(16,43,78,.72);font-size:15px;line-height:1.7}.trial-eligibility{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}.trial-eligibility h4{margin:0;font-size:11px;letter-spacing:.14em;text-transform:uppercase}.trial-eligibility ul{margin:14px 0 0;padding:0;list-style:none}.trial-eligibility li{position:relative;margin-top:9px;padding-left:22px;color:rgba(16,43,78,.72);font-size:14px;line-height:1.55}.trial-eligibility li:before{content:"";position:absolute;top:.72em;left:0;width:11px;height:1px;background:var(--gold)}.trial-card dl{display:grid;gap:9px;margin:24px 0 0;padding-top:20px;border-top:1px solid var(--line)}.trial-card dl div{display:flex;gap:9px;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.trial-card dt{color:rgba(16,43,78,.6)}.trial-card dd{margin:0;color:var(--navy);font-weight:600}.trial-card>.btn{width:100%;margin-top:auto;border-radius:999px}
+.participation{background:var(--white)}.participation-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 28px;margin:0;padding:0;list-style:none}.participation-steps li{position:relative;padding:28px 0 0;border-top:1px solid var(--line)}.participation-steps li:before{content:"";position:absolute;top:-1px;left:0;width:52px;height:2px;background:var(--gold)}.participation-steps span{color:var(--teal);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.participation-steps h3{margin:13px 0 0;font-size:23px;font-weight:500}.participation-steps p{margin:10px 0 0;color:rgba(16,43,78,.72);font-size:14px;line-height:1.7}
+.trials-cta{background:var(--white)}.trials-cta-panel{position:relative;isolation:isolate;overflow:hidden;padding:70px;border-radius:32px;background:var(--navy);color:var(--white)}.trials-cta-panel:before{content:"";position:absolute;z-index:-2;top:0;right:-7%;bottom:0;width:66%;background:url('assets/nova-dna-cta-banner.png') right center/cover no-repeat;opacity:.28}.trials-cta-panel:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,var(--navy),rgba(16,43,78,.95) 52%,rgba(16,43,78,.32))}.trials-cta-panel .leadership-kicker{color:#9ED1D3}.trials-cta-panel h2{max-width:720px;margin:18px 0 0;color:var(--white);font-size:clamp(40px,4.4vw,64px);font-weight:500;line-height:1.06;letter-spacing:-.045em}.trials-cta-panel p{max-width:620px;margin:24px 0 0;color:rgba(255,255,255,.84);font-size:17px;line-height:1.7}.trials-cta-panel>div{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.trials-cta-panel .btn{border-color:var(--white);border-radius:999px;background:var(--white);color:var(--navy)}.trials-cta-panel .btn-outline{background:transparent;color:var(--white)}
+@media(max-width:1050px){.trials-page main>section{padding-block:var(--section-space-tablet)}.trials-hero-panel{min-height:620px;margin-top:18px;padding:58px}.trials-section-head{display:block}.trials-legend{margin-top:28px}.trial-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.trial-card,.trial-card:nth-child(4),.trial-card:nth-child(5){grid-column:auto;min-height:690px}.trial-card:last-child{grid-column:1/-1;width:100%;justify-self:stretch}.participation-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.trials-page main>section{padding-block:var(--section-space-mobile)}.trials-hero-panel{min-height:580px;margin-top:16px;padding:38px 24px;border-radius:28px;background-position:62% center}.trials-hero-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.42),rgba(16,43,78,.94))}.trials-hero h1{font-size:38px}.trials-hero p{font-size:16px}.trial-cards,.participation-steps{grid-template-columns:1fr}.trial-card,.trial-card:last-child{grid-column:auto;width:100%;min-height:0;padding:26px 22px}.trial-card>.btn{margin-top:30px}.trials-cta-panel{padding:46px 26px}.trials-cta-panel:before{right:-38%;width:115%;opacity:.18}.trials-cta-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.98),rgba(16,43,78,.88))}.trials-cta-panel>div{flex-direction:column}.trials-cta-panel .btn{width:100%}}
+
+/* Clinical Trials refinements: guaranteed CTA spacing and a distinct participation journey. */
+.trial-card dl{margin-bottom:28px}
+.participation{background:var(--white)}
+.participation>.wrap{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:72px;align-items:start}
+.participation .trials-section-head{position:sticky;top:124px;display:block;margin:0}
+.participation .trials-section-head h2{font-size:clamp(42px,4vw,58px)}
+.participation-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;counter-reset:participation-step}
+.participation-steps li{min-height:230px;padding:30px;border:1px solid rgba(16,43,78,.11);border-radius:24px;background:var(--ivory);box-shadow:0 10px 26px rgba(16,43,78,.045);counter-increment:participation-step}
+.participation-steps li:before{content:counter(participation-step,decimal-leading-zero);position:static;display:grid;width:46px;height:46px;place-items:center;border-radius:50%;background:var(--navy);color:var(--white);font-size:12px;font-weight:700;letter-spacing:.08em}
+.participation-steps span{display:none}
+.participation-steps h3{margin-top:30px}
+@media(max-width:1050px){.participation>.wrap{grid-template-columns:1fr;gap:48px}.participation .trials-section-head{position:static}.participation-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.trial-card>.btn{margin-top:0}.participation>.wrap{gap:36px}.participation-steps{grid-template-columns:1fr}.participation-steps li{min-height:0;padding:26px 22px}.participation-steps h3{margin-top:24px}}
+
+/* Participation sequence: open, numbered process inspired by the supplied reference. */
+.participation>.wrap{grid-template-columns:1fr;gap:58px}
+.participation .trials-section-head{position:static;max-width:820px}
+.participation-steps{position:relative;grid-template-columns:repeat(3,minmax(0,1fr));gap:72px 0;overflow:hidden}
+.participation-steps:before{content:none}
+.participation-steps li{min-height:250px;padding:28px 40px 10px;border:0;border-radius:0;background:transparent;box-shadow:none}
+.participation-steps li:not(:nth-child(3n+1)){border-left:1px dashed rgba(16,43,78,.25)}
+.participation-steps li:before{content:counter(participation-step,decimal-leading-zero);display:block;width:auto;height:auto;margin:0 0 -27px;background:transparent;color:rgba(56,127,135,.13);font-size:86px;font-weight:700;line-height:.9;letter-spacing:-.08em}
+.participation-steps li:nth-child(3n+2):before{color:rgba(184,154,96,.18)}
+.participation-steps li:nth-child(3n):before{color:rgba(16,43,78,.1)}
+.participation-steps h3{position:relative;margin:0;font-size:24px;font-weight:600}
+.participation-steps p{position:relative;max-width:330px;margin-top:38px;line-height:1.75}
+@media(max-width:1050px){.participation-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 0}.participation-steps:before{display:none}.participation-steps li:not(:nth-child(3n+1)){border-left:0}.participation-steps li:nth-child(even){border-left:1px dashed rgba(16,43,78,.25)}}
+@media(max-width:700px){.participation>.wrap{gap:38px}.participation-steps{grid-template-columns:1fr;gap:12px}.participation-steps li,.participation-steps li:nth-child(even){min-height:0;padding:24px 0 34px;border-left:0;border-bottom:1px dashed rgba(16,43,78,.22)}.participation-steps li:last-child{border-bottom:0}.participation-steps li:before{margin-bottom:-23px;font-size:74px}.participation-steps p{margin-top:28px}}
+
+/* Clinical Trials motion: consistent with Home, About, and Leadership. */
+.motion-ready .trials-hero-copy>*{opacity:0;transform:translateY(22px)}
+.motion-ready.page-ready .trials-hero-copy>*{opacity:1;transform:none;transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1)}
+.motion-ready.page-ready .trials-hero-copy>*:nth-child(1){transition-delay:.18s}
+.motion-ready.page-ready .trials-hero-copy>*:nth-child(2){transition-delay:.28s}
+.motion-ready.page-ready .trials-hero-copy>*:nth-child(3){transition-delay:.38s}
+.trial-status:before{animation:trial-status-pulse 2.4s ease-in-out infinite}
+@keyframes trial-status-pulse{0%,100%{box-shadow:0 0 0 0 rgba(56,127,135,.3)}50%{box-shadow:0 0 0 6px rgba(56,127,135,0)}}
+@media(prefers-reduced-motion:reduce){.motion-ready .trials-hero-copy>*,.motion-ready.page-ready .trials-hero-copy>*{opacity:1;transform:none;transition:none}.trial-status:before{animation:none}}
+
+/* Patients & Resources page — calm, readable, participant-first. */
+.patients-page{overflow-x:clip}.patients-page .site-header{background:rgba(255,255,255,.94);color:var(--navy);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.patients-page .site-header .brand-logo-default{display:none}.patients-page .site-header .brand-logo-scroll{display:block}.patients-page .site-header .nav a{color:var(--navy)}.patients-page .site-header .nav a:hover,.patients-page .site-header .nav a.active,.patients-page .site-header .nav a[aria-current="page"]{color:var(--teal)}.patients-page .site-header .mobile-toggle{color:var(--navy)}.patients-page .site-header .header-cta{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.patients-page main>section{padding-block:var(--section-space)}
+.patients-hero{background:var(--white)}.patients-hero-panel{position:relative;isolation:isolate;display:flex;min-height:680px;align-items:flex-end;overflow:hidden;padding:76px;border-radius:36px;background:url('assets/nova-about-care.png') center/cover no-repeat;box-shadow:0 18px 44px rgba(16,43,78,.12)}.patients-hero-panel:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,43,78,.94),rgba(16,43,78,.72) 58%,rgba(16,43,78,.3))}.patients-hero-copy{max-width:900px;color:var(--white)}.patients-hero .leadership-kicker{color:#9ED1D3}.patients-hero h1{max-width:850px;margin:22px 0 0;color:var(--white);font-size:clamp(44px,5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.05em}.patients-hero p{max-width:700px;margin:30px 0 0;color:rgba(255,255,255,.88);font-size:19px;line-height:1.7}
+.patient-learning{background:var(--ivory)}.patient-learning-layout{display:grid;grid-template-columns:minmax(260px,.68fr) minmax(0,1.32fr);gap:76px;align-items:start}.patient-topics{position:sticky;top:124px;padding:32px;border:1px solid var(--line);border-radius:28px;background:var(--white)}.patient-topics nav{display:grid;margin-top:22px}.patient-topics a{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:15px 0;border-top:1px solid var(--line);color:rgba(16,43,78,.75);font-size:13px;line-height:1.45}.patient-topics b{color:var(--gold);font-size:11px;letter-spacing:.1em}.patient-topics a:hover{color:var(--teal);transform:translateX(4px)}
+.patient-answers{display:grid;gap:24px}.patient-answers article{position:relative;scroll-margin-top:120px;overflow:hidden;padding:44px;border:1px solid rgba(16,43,78,.11);border-radius:30px;background:var(--white);box-shadow:0 12px 28px rgba(16,43,78,.045)}.patient-answers article>span{position:absolute;top:22px;right:28px;color:rgba(56,127,135,.12);font-size:72px;font-weight:700;line-height:1}.patient-answers h2{position:relative;max-width:650px;margin:0;padding-right:70px;font-size:clamp(30px,3vw,44px);font-weight:500;line-height:1.13;letter-spacing:-.035em}.patient-answers p{position:relative;max-width:720px;margin:22px 0 0;color:rgba(16,43,78,.74);font-size:16px;line-height:1.75}
+.patient-faq{scroll-margin-top:100px;background:var(--white)}.patient-section-head{max-width:760px;margin-bottom:54px}.patient-section-head h2{margin:16px 0 0;font-size:clamp(42px,4.5vw,66px);font-weight:500;line-height:1.06;letter-spacing:-.045em}.patient-faq-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.patient-faq-list details{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--ivory)}.patient-faq-list summary{position:relative;display:grid;grid-template-columns:38px 1fr auto;gap:14px;align-items:center;padding:24px 58px 24px 24px;color:var(--navy);font-size:17px;font-weight:600;line-height:1.4;cursor:pointer;list-style:none}.patient-faq-list summary::-webkit-details-marker{display:none}.patient-faq-list summary span{color:var(--teal);font-size:11px;letter-spacing:.12em}.patient-faq-list summary:after{content:"+";position:absolute;right:24px;color:var(--gold);font-size:25px;font-weight:400}.patient-faq-list details[open] summary:after{content:"−"}.patient-faq-list details p{margin:0;padding:0 24px 26px 76px;color:rgba(16,43,78,.72);font-size:14px;line-height:1.75}
+.patient-cta{background:var(--white)}.patient-cta-panel{position:relative;isolation:isolate;overflow:hidden;padding:70px;border-radius:32px;background:var(--navy);color:var(--white)}.patient-cta-panel:before{content:"";position:absolute;z-index:-2;top:0;right:-7%;bottom:0;width:66%;background:url('assets/nova-dna-cta-banner.png') right center/cover no-repeat;opacity:.28}.patient-cta-panel:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,var(--navy),rgba(16,43,78,.95) 52%,rgba(16,43,78,.32))}.patient-cta-panel .leadership-kicker{color:#9ED1D3}.patient-cta-panel h2{max-width:740px;margin:18px 0 0;color:var(--white);font-size:clamp(40px,4.4vw,64px);font-weight:500;line-height:1.06;letter-spacing:-.045em}.patient-cta-panel p{max-width:620px;margin:24px 0 0;color:rgba(255,255,255,.84);font-size:17px;line-height:1.7}.patient-cta-panel>div{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.patient-cta-panel .btn{border-color:var(--white);border-radius:999px;background:var(--white);color:var(--navy)}.patient-cta-panel .btn-outline{background:transparent;color:var(--white)}
+@media(max-width:1050px){.patients-page main>section{padding-block:var(--section-space-tablet)}.patients-hero-panel{min-height:620px;margin-top:18px;padding:58px}.patient-learning-layout{grid-template-columns:1fr;gap:42px}.patient-topics{position:static}.patient-topics nav{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}.patient-faq-list{grid-template-columns:1fr}}
+@media(max-width:700px){.patients-page main>section{padding-block:var(--section-space-mobile)}.patients-hero-panel{min-height:580px;margin-top:16px;padding:38px 24px;border-radius:28px;background-position:62% center}.patients-hero-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.4),rgba(16,43,78,.94))}.patients-hero h1{font-size:38px}.patients-hero p{font-size:16px}.patient-topics{padding:26px 22px}.patient-topics nav{grid-template-columns:1fr}.patient-answers article{padding:34px 24px}.patient-answers article>span{top:20px;right:20px;font-size:58px}.patient-answers h2{padding-right:48px;font-size:30px}.patient-faq-list summary{grid-template-columns:30px 1fr;padding:22px 50px 22px 20px;font-size:15px}.patient-faq-list details p{padding:0 20px 24px 20px}.patient-cta-panel{padding:46px 26px}.patient-cta-panel:before{right:-38%;width:115%;opacity:.18}.patient-cta-panel:after{background:linear-gradient(180deg,rgba(16,43,78,.98),rgba(16,43,78,.88))}.patient-cta-panel>div{flex-direction:column}.patient-cta-panel .btn{width:100%}}
+
+/* Patients page motion. */
+.motion-ready .patients-hero-copy>*{opacity:0;transform:translateY(22px)}.motion-ready.page-ready .patients-hero-copy>*{opacity:1;transform:none;transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1)}.motion-ready.page-ready .patients-hero-copy>*:nth-child(1){transition-delay:.18s}.motion-ready.page-ready .patients-hero-copy>*:nth-child(2){transition-delay:.28s}.motion-ready.page-ready .patients-hero-copy>*:nth-child(3){transition-delay:.38s}
+@media(prefers-reduced-motion:reduce){.motion-ready .patients-hero-copy>*,.motion-ready.page-ready .patients-hero-copy>*{opacity:1;transform:none;transition:none}}
+
+/* Patient topic scrollspy and reading focus. */
+.patient-answers article,.patient-faq{scroll-margin-top:124px}
+.patient-topics a.is-active{color:var(--teal);font-weight:700;transform:translateX(4px)}
+.patient-topics a.is-active b{color:var(--navy)}
+.patient-learning.is-scrollspy-ready .patient-answers article{opacity:.26;transform:scale(.985);filter:saturate(.6);box-shadow:none;transition:opacity .45s ease,transform .45s ease,filter .45s ease,box-shadow .45s ease}
+.patient-learning.is-scrollspy-ready .patient-answers article.is-reading{opacity:1;transform:none;filter:none;box-shadow:0 18px 42px rgba(16,43,78,.09)}
+@media(max-width:700px){.patient-learning.is-scrollspy-ready .patient-answers article{opacity:.58;transform:scale(.99);filter:none}.patient-learning.is-scrollspy-ready .patient-answers article.is-reading{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.patient-learning.is-scrollspy-ready .patient-answers article,.patient-learning.is-scrollspy-ready .patient-answers article.is-reading{transform:none;transition:none}}
 
