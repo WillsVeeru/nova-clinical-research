@@ -43,6 +43,23 @@
     ['.privacy-document-head', 'up'],
     ['.privacy-articles article', 'up'],
     ['.privacy-disclaimer', 'up'],
+    ['.sponsors-hero-panel', 'scale'],
+    ['.sponsors-section-head', 'up'],
+    ['.sponsors-why-copy', 'right'],
+    ['.therapeutic-grid article', 'up'],
+    ['.therapeutic-alt-visual', 'left'],
+    ['.therapeutic-alt-item', 'right'],
+    ['.capability-grid article', 'up'],
+    ['.recruitment-copy', 'left'],
+    ['.demographics', 'right'],
+    ['.feasibility-steps li', 'up'],
+    ['.feasibility-timeline li', 'up'],
+    ['.sponsors-cta-panel', 'scale'],
+    ['.contact-hero-panel', 'scale'],
+    ['.contact-type', 'up'],
+    ['.contact-office', 'left'],
+    ['.contact-forms', 'right'],
+    ['.contact-page footer .footer-grid > div', 'up'],
     ['#contact .footer-grid > div', 'up']
   ];
 
@@ -69,6 +86,29 @@
     document.querySelectorAll('[data-reveal]').forEach(element => revealObserver.observe(element));
   } else {
     document.querySelectorAll('[data-reveal]').forEach(element => element.classList.add('is-visible'));
+  }
+
+  const feasibilityTimeline = document.querySelector('.feasibility-timeline');
+  if (feasibilityTimeline) {
+    const steps = Array.from(feasibilityTimeline.children);
+    let progressFrame = null;
+    const updateFeasibilityProgress = () => {
+      progressFrame = null;
+      const readingLine = window.innerHeight * 0.62;
+      steps.forEach(step => {
+        const number = step.querySelector('.feasibility-timeline-number');
+        if (!number) return;
+        const bounds = number.getBoundingClientRect();
+        step.classList.toggle('is-complete', bounds.top + bounds.height / 2 <= readingLine);
+      });
+    };
+    const queueFeasibilityProgress = () => {
+      if (progressFrame === null) progressFrame = requestAnimationFrame(updateFeasibilityProgress);
+    };
+    window.addEventListener('scroll', queueFeasibilityProgress, { passive: true });
+    window.addEventListener('resize', queueFeasibilityProgress, { passive: true });
+    window.addEventListener('load', queueFeasibilityProgress, { once: true });
+    updateFeasibilityProgress();
   }
 
   const counters = document.querySelectorAll('.hero-stat dd, .about-page-stats dd');
@@ -127,6 +167,7 @@
 
   const investigatorZone = document.querySelector('.investigator-scroll-zone');
   const investigatorTrack = document.querySelector('.investigator-grid');
+  const investigatorSticky = document.querySelector('.investigator-sticky');
   let investigatorMaxShift = 0;
   let investigatorScheduled = false;
 
@@ -134,6 +175,7 @@
     if (!investigatorZone || !investigatorTrack) return;
     if (window.innerWidth <= 700 || reducedMotion.matches) {
       investigatorZone.style.removeProperty('--investigator-scroll-height');
+      investigatorZone.style.removeProperty('--investigator-pin-top');
       investigatorTrack.style.removeProperty('--investigator-card-width');
       investigatorTrack.style.removeProperty('--investigator-edge-gutter');
       investigatorTrack.style.removeProperty('--investigator-shift');
@@ -150,7 +192,11 @@
     investigatorTrack.style.setProperty('--investigator-edge-gutter', `${edgeGutter}px`);
     investigatorTrack.style.setProperty('--investigator-card-width', `${cardWidth}px`);
     investigatorMaxShift = Math.max(0, investigatorTrack.scrollWidth - viewportWidth);
-    investigatorZone.style.setProperty('--investigator-scroll-height', `${investigatorMaxShift + window.innerHeight - 104}px`);
+    const stickyHeight = investigatorSticky.offsetHeight;
+    const headerHeight = document.querySelector('.site-header')?.offsetHeight || 90;
+    const pinTop = headerHeight + 16;
+    investigatorZone.style.setProperty('--investigator-pin-top', `${pinTop}px`);
+    investigatorZone.style.setProperty('--investigator-scroll-height', `${investigatorMaxShift + stickyHeight}px`);
     updateInvestigatorScroll();
   };
 
@@ -159,8 +205,9 @@
       investigatorScheduled = false;
       return;
     }
-    const start = investigatorZone.getBoundingClientRect().top + window.scrollY - 104;
-    const range = Math.max(1, investigatorZone.offsetHeight - window.innerHeight + 104);
+    const pinTop = parseFloat(getComputedStyle(investigatorSticky).top) || 104;
+    const start = investigatorZone.getBoundingClientRect().top + window.scrollY - pinTop;
+    const range = Math.max(1, investigatorZone.offsetHeight - investigatorSticky.offsetHeight);
     const progress = Math.min(Math.max((window.scrollY - start) / range, 0), 1);
     investigatorTrack.style.setProperty('--investigator-shift', `${-investigatorMaxShift * progress}px`);
     investigatorScheduled = false;
@@ -272,5 +319,68 @@
       const open = patientTopics.classList.toggle('is-open');
       patientTopicsToggle.setAttribute('aria-expanded', String(open));
     });
+  }
+
+  const therapeuticTabs = Array.from(document.querySelectorAll('[data-therapeutic-tab]'));
+  const therapeuticVisual = document.querySelector('.therapeutic-alt-visual');
+  const therapeuticScroll = document.querySelector('.therapeutic-alt-scroll');
+  const therapeuticLayout = document.querySelector('.therapeutic-alt-layout');
+  const therapeuticNumber = document.querySelector('[data-therapeutic-number]');
+  const therapeuticTitle = document.querySelector('[data-therapeutic-title]');
+  let therapeuticFrame;
+  let activeTherapeuticIndex = 0;
+
+  if (therapeuticTabs.length && therapeuticVisual && therapeuticScroll && therapeuticLayout && therapeuticNumber && therapeuticTitle) {
+    const selectTherapeuticArea = index => {
+      const tab = therapeuticTabs[index];
+      if (!tab || index === activeTherapeuticIndex) return;
+      activeTherapeuticIndex = index;
+      therapeuticTabs.forEach(item => {
+        const active = item === tab;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      therapeuticNumber.textContent = tab.dataset.number;
+      therapeuticTitle.textContent = tab.dataset.title;
+    };
+
+    const therapeuticMetrics = () => {
+      const stickyTop = document.querySelector('.site-header')?.getBoundingClientRect().height || 90;
+      therapeuticScroll.style.setProperty('--therapeutic-header-height', `${stickyTop}px`);
+      const start = therapeuticScroll.getBoundingClientRect().top + window.scrollY - stickyTop;
+      // Keep the scroll range stable while the panel animates to viewport height.
+      const range = Math.max(1, therapeuticScroll.offsetHeight - (window.innerHeight - stickyTop));
+      return { start, range };
+    };
+
+    const updateTherapeuticScroll = () => {
+      therapeuticFrame = null;
+      if (window.innerWidth <= 1050 || reducedMotion.matches) return;
+      const { start, range } = therapeuticMetrics();
+      therapeuticLayout.classList.toggle('is-expanded', window.scrollY >= start);
+      const progress = Math.min(1, Math.max(0, (window.scrollY - start) / range));
+      therapeuticLayout.style.setProperty('--therapeutic-progress', progress.toFixed(4));
+      selectTherapeuticArea(Math.round(progress * (therapeuticTabs.length - 1)));
+    };
+
+    const queueTherapeuticScroll = () => {
+      if (!therapeuticFrame) therapeuticFrame = requestAnimationFrame(updateTherapeuticScroll);
+    };
+
+    therapeuticTabs.forEach((tab, index) => tab.addEventListener('click', () => {
+      if (window.innerWidth <= 1050 || reducedMotion.matches) {
+        selectTherapeuticArea(index);
+        return;
+      }
+      const { start, range } = therapeuticMetrics();
+      window.scrollTo({
+        top: start + (index / (therapeuticTabs.length - 1)) * range,
+        behavior: 'smooth'
+      });
+    }));
+
+    window.addEventListener('scroll', queueTherapeuticScroll, { passive: true });
+    window.addEventListener('resize', queueTherapeuticScroll);
+    updateTherapeuticScroll();
   }
 })();
